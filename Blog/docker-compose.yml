@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - NETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://localhost:5000
