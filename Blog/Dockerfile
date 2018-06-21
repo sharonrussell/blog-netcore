@@ -1,8 +1,7 @@
-FROM microsoft/dotnet:latest
+FROM microsoft/aspnetcore:latest
 
-ADD ./ /app
+ADD ./out /app
 WORKDIR /app
 
-RUN dotnet publish -c Release -o out
-
-ENTRYPOINT ["dotnet", "out/netcoreapp2.0/Blog.dll"]
+EXPOSE 5000:80
+ENTRYPOINT ["dotnet", "Blog.dll"]
