@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Controllers
 {
@@ -9,6 +10,12 @@ namespace Blog.Controllers
         public string Get()
         {
             return "This is a dummy blog entry";
+        }
+
+        [HttpPost]
+        public ActionResult Create(string title, string body)
+        {
+            return Ok();
         }
     }
 }
