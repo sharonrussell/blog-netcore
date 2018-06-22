@@ -30,10 +30,9 @@ namespace BlogTests
         }
 
         [Test]
-        public void GotCorrectContent()
+        public void GotSomeContent()
         {
-            //obviously need to change the test based on what the blog content would be?
-            Assert.That(_client.GetAsync("/").Result.Content.ReadAsStringAsync().Result, Is.EqualTo("This is a dummy blog entry"));
+            Assert.That(_client.GetAsync("/").Result.Content, Is.Not.Null);
         }
     }
 }
