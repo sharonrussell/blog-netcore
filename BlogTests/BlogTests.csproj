@@ -4,10 +4,23 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+    <PackageReference Include="Microsoft.TestPlatform.TestHost" Version="15.8.0-preview-20180610-02" />
     <PackageReference Include="NUnit" Version="3.10.1" />
     <PackageReference Include="NUnit.ConsoleRunner" Version="3.8.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Hosting, Version=2.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.hosting\2.0.3\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blog\Blog.csproj">
+      <Project>{D4F2B7A1-945A-4178-AA2B-537E5C79A3A6}</Project>
+      <Name>Blog</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

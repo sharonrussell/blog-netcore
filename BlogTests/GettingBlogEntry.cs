@@ -1,26 +1,39 @@
+using System.Net;
+using System.Net.Http;
+using Blog;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.TestHost;
 using NUnit.Framework;
 
 namespace BlogTests
 {
     public class GettingBlogEntry
     {
+        private TestServer _server;
+        private HttpClient _client;
+
         [SetUp]
         public void SetUp()
         {
-            //create a test server
-            //populate with some data
+            var builder = new WebHostBuilder()
+                .UseKestrel()
+                .UseStartup<Startup>();
+
+            _server = new TestServer(builder);
+            _client = _server.CreateClient();
         }
         
         [Test]
         public void CorrectStatusCodeReturned()
         {
-            //got a 200 response
+            Assert.That(_client.GetAsync("/").Result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
 
         [Test]
         public void GotCorrectContent()
         {
-            //got correct content
+            //obviously need to change the test based on what the blog content would be?
+            Assert.That(_client.GetAsync("/").Result.Content.ReadAsStringAsync().Result, Is.EqualTo("This is a dummy blog entry"));
         }
     }
 }
